@@ -1,13 +1,14 @@
 .container {
     display: flex;
     flex-direction: column;
-    height: 500px;
+    height: 570px;
     max-width: 809px;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
     padding: 10px;
+    box-sizing: border-box;
     border: 2px solid black;
     border-radius: 10px;
     box-shadow: 0 30px 30px rgba(0, 0, 0, 0.25);
@@ -16,70 +17,25 @@
     gap: 10px;
 }
 
-.top{
-}
+.top {}
 
-.top-label{
+.top-label {
     font-size: 150%;
-    height:auto;
-}
-
-.top-buttonGroup{
-    border-top:2px solid black;
-}
-
-.top-button{
-    border:2px solid black;
-}
-
-.bottom{
-    flex:1;
-    display:flex;
-    flex-direction: row;
-    gap:10px;
-}
-
-.left {
-    display: flex;
-    flex-direction: column;
-    width: 294px;
-    padding: 10px;
-    background: #f0f0f0;
-    border: 2px solid black;
-    border-radius: 10px;
-    gap: 10px;
-}
-
-.right {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    border: 2px solid black;
-    border-radius: 10px;
-    gap: 10px;
-}
-
-.left-top,
-.right-top {
     height: 40px;
-    background: #d0e0ff;
-    border: 2px solid black;
-    border-radius: 10px;
 }
 
-.left-middle,
-.left-bottom {
-    flex: 1;
-    padding: 10px;
-    background: #ffd0d0;
-    border: 2px solid black;
-    border-radius: 10px;
+.top-buttonGroup {
+    display: flex;
+    height: 30px;
+    border-top: 2px solid black;
+    box-sizing: border-box;
+    justify-content: center;
+    gap: 10px;
 }
 
-.right-bottom {
-    flex: 1;
-    background: #ffd0d0;
+.top-button {
+    margin-top: -2px;
+    box-sizing: border-box;
+    height: 30px;
     border: 2px solid black;
-    border-radius: 10px;
 }

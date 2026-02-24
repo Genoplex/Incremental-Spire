@@ -1,7 +1,7 @@
-function Btoa(str) {
+function encoded(str) {
     return btoa(encodeURIComponent(str));
 }
-function Atob(base64) {
+function decoded(base64) {
     return decodeURIComponent(atob(base64));
 }
 
@@ -10,17 +10,19 @@ function load() {
     if (!storedSave) return getDefaultPlayer();
 
     try {
-        const jsonString = Atob(storedSave);
-        const temporaryPlayer = JSON.parse(jsonString);
-        temporaryPlayer.timePlayed = new Decimal(temporaryPlayer.timePlayed || 0);
-        return temporaryPlayer;
+        const saveJsonString = decoded(storedSave);
+        const temporarySave = JSON.parse(saveJsonString);
+        const defaultPlayer = getDefaultPlayer();
+        const merged = { ...defaultPlayer, ...temporarySave }
+        merged.timePlayed = new Decimal(merged.timePlayed || 0);
+        return merged;
     } catch {
         return getDefaultPlayer();
     }
 }
 
 function save(player) {
-    const jsonString = JSON.stringify(player);
-    const encoded = Btoa(jsonString);
-    localStorage.setItem('player', encoded);
+    const saveJsonString = JSON.stringify(player);
+    const temporarySave = encoded(saveJsonString);
+    localStorage.setItem('player', temporarySave);
 }
